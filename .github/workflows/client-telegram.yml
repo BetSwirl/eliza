@@ -28,4 +28,4 @@ jobs:
 
             - run: npm publish --@betswirl/eliza:registry=https://npm.pkg.github.com
               env:
-                NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_PAT_ET }}
