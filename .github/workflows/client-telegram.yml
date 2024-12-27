@@ -18,8 +18,7 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                 node-version: 23.5.0
-                registry-url: 'https://npm.pkg.github.com'
-                token: ${{ secrets.PUBLISH_PAT_ET }}
+                token: ${{ secrets.CHAINHACKERS_NPM_TOKEN }}
 
             - run: npm --prefix `pwd` ci
               working-directory: ./packages/client-telegram
@@ -29,4 +28,4 @@ jobs:
 
             - run: npm publish
               env:
-                NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_PAT_ET }}
+                NODE_AUTH_TOKEN: ${{ secrets.CHAINHACKERS_NPM_TOKEN }}
