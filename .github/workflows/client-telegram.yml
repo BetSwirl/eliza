@@ -19,6 +19,7 @@ jobs:
               with:
                 node-version: 23.5.0
                 registry-url: 'https://npm.pkg.github.com'
+                token: ${{ secrets.PUBLISH_PAT_ET }}
 
             - run: npm --prefix `pwd` ci
               working-directory: ./packages/client-telegram
@@ -26,6 +27,6 @@ jobs:
             - run: npm run build
               working-directory: ./packages/client-telegram
 
-            - run: npm publish --@betswirl/eliza:registry=https://npm.pkg.github.com
+            - run: npm publish
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_PAT_ET }}
