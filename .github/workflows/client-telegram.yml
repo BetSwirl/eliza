@@ -30,7 +30,7 @@ jobs:
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 registry: "https://npm.pkg.github.com"
-                working-directory: ./packages/client-telegram
+                package: ./packages/client-telegram
 
             - run: npm publish
               env:
