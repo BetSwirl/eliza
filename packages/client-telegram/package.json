@@ -5,7 +5,7 @@
     "type": "module",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@ai16z/eliza": "workspace:*",
+        "@ai16z/eliza": "0.1.5-alpha.5",
         "@telegraf/types": "7.1.0",
         "telegraf": "4.16.3",
         "zod": "3.23.8"
