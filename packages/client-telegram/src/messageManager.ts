@@ -333,14 +333,14 @@ export class MessageManager {
 
         try {
             // Convert IDs to UUIDs
-            const userId = stringToUuid(ctx.from.id.toString()) as UUID;
+            const userUuid = stringToUuid(ctx.from.id.toString()) as UUID;
 
             // Get user name
             const userName =
                 ctx.from.username || ctx.from.first_name || "Unknown User";
 
             // Get chat ID
-            const chatId = stringToUuid(
+            const chatUuid = stringToUuid(
                 ctx.chat?.id.toString() + "-" + this.runtime.agentId
             ) as UUID;
 
@@ -348,11 +348,11 @@ export class MessageManager {
             const agentId = this.runtime.agentId;
 
             // Get room ID
-            const roomId = chatId;
+            const roomId = chatUuid;
 
             // Ensure connection
             await this.runtime.ensureConnection(
-                userId,
+                userUuid,
                 roomId,
                 userName,
                 userName,
@@ -360,7 +360,7 @@ export class MessageManager {
             );
 
             // Get message ID
-            const messageId = stringToUuid(
+            const messageUuid = stringToUuid(
                 message.message_id.toString() + "-" + this.runtime.agentId
             ) as UUID;
 
@@ -400,13 +400,17 @@ export class MessageManager {
 
             // Create memory for the message
             const memory: Memory = {
-                id: messageId,
+                id: messageUuid,
                 agentId,
-                userId,
+                userId: userUuid,
                 roomId,
                 content,
                 createdAt: message.date * 1000,
                 embedding: getEmbeddingZeroVector(),
+                telegram: {
+                    messageId: ctx.from.id.toString(),
+                    chatId: ctx.chat?.id.toString(),
+                },
             };
 
             // Create memory
@@ -466,7 +470,7 @@ export class MessageManager {
                             content: {
                                 ...content,
                                 text: sentMessage.text,
-                                inReplyTo: messageId,
+                                inReplyTo: messageUuid,
                             },
                             createdAt: sentMessage.date * 1000,
                             embedding: getEmbeddingZeroVector(),

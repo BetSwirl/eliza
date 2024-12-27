@@ -5,6 +5,11 @@ import { Readable } from "stream";
  */
 export type UUID = `${string}-${string}-${string}-${string}-${string}`;
 
+export interface TelegramMeta {
+    chatId: string;
+    messageId: string;
+}
+
 /**
  * Represents the content of a message or communication
  */
@@ -353,6 +358,8 @@ export interface Memory {
 
     /** Embedding similarity score */
     similarity?: number;
+
+    telegram?: TelegramMeta;
 }
 
 /**
@@ -605,9 +612,9 @@ export type Plugin = {
  */
 export enum Clients {
     DISCORD = "discord",
-// you can't specify this in characters
-// all characters are registered with this
-//    DIRECT = "direct",
+    // you can't specify this in characters
+    // all characters are registered with this
+    //    DIRECT = "direct",
     TWITTER = "twitter",
     TELEGRAM = "telegram",
     FARCASTER = "farcaster",
@@ -1138,12 +1145,16 @@ export interface IPdfService extends Service {
 }
 
 export interface IAwsS3Service extends Service {
-    uploadFile(imagePath: string, useSignedUrl: boolean, expiresIn: number ): Promise<{
+    uploadFile(
+        imagePath: string,
+        useSignedUrl: boolean,
+        expiresIn: number
+    ): Promise<{
         success: boolean;
         url?: string;
         error?: string;
     }>;
-    generateSignedUrl(fileName: string, expiresIn: number): Promise<string>
+    generateSignedUrl(fileName: string, expiresIn: number): Promise<string>;
 }
 
 export type SearchResult = {
