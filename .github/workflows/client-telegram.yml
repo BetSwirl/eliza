@@ -23,7 +23,7 @@ jobs:
             - name: Install Protobuf Compiler
               run: sudo apt-get install -y protobuf-compiler
 
-            - run: npm ci
+            - run: npm --prefix `pwd` npm ci
               working-directory: ./packages/client-telegram
 
             - run: npm run build
