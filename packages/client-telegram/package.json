@@ -1,5 +1,5 @@
 {
-    "name": "@ai16z/client-telegram",
+    "name": "@betswirl/client-telegram",
     "version": "0.1.5-alpha.5-ch-tg-client",
     "main": "dist/index.js",
     "type": "module",
