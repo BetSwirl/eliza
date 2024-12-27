@@ -29,3 +29,4 @@ jobs:
               with:
                 token: ${{ secrets.CHAINHACKERS_NPM_TOKEN }}
                 package: ./packages/client-telegram
+                access: public
