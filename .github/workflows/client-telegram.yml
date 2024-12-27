@@ -18,7 +18,6 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                 node-version: 23.5.0
-                token: ${{ secrets.CHAINHACKERS_NPM_TOKEN }}
 
             - run: npm --prefix `pwd` ci
               working-directory: ./packages/client-telegram
@@ -26,6 +25,7 @@ jobs:
             - run: npm run build
               working-directory: ./packages/client-telegram
 
-            - run: npm publish
-              env:
-                NPM_TOKEN: ${{ secrets.CHAINHACKERS_NPM_TOKEN }}
+            - uses: JS-DevTools/npm-publish@v3
+              with:
+                token: ${{ secrets.CHAINHACKERS_NPM_TOKEN }}
+                package: ./packages/client-telegram
