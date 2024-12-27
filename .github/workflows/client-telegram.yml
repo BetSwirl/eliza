@@ -20,17 +20,13 @@ jobs:
                 node-version: 23.5.0
                 registry-url: 'https://npm.pkg.github.com'
 
-            - uses: pnpm/action-setup@v3
-              with:
-                version: 9.4.0
-
             - name: Install Protobuf Compiler
               run: sudo apt-get install -y protobuf-compiler
 
-            - run: pnpm install
+            - run: npm ci
               working-directory: ./packages/client-telegram
 
-            - run: pnpm run build
+            - run: npm run build
               working-directory: ./packages/client-telegram
 
             - run: npm publish
