@@ -26,12 +26,6 @@ jobs:
             - run: npm run build
               working-directory: ./packages/client-telegram
 
-            - uses: JS-DevTools/npm-publish@v3
-              with:
-                token: ${{ secrets.GITHUB_TOKEN }}
-                registry: "https://npm.pkg.github.com"
-                package: ./packages/client-telegram
-
-            - run: npm publish
+            - run: npm publish --@betswirl:registry=https://npm.pkg.github.com
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
