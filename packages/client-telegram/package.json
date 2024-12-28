@@ -1,14 +1,20 @@
 {
     "name": "@betswirl/eliza-client-telegram",
-    "version": "0.1.5-alpha.6",
+    "version": "0.1.5-alpha.7",
     "main": "dist/index.js",
     "type": "module",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@betswirl/eliza-core": "0.1.5-alpha.6",
+        "@betswirl/eliza-core": "0.1.5-alpha.7",
         "@telegraf/types": "7.1.0",
         "telegraf": "4.16.3",
-        "zod": "3.23.8"
+        "zod": "3.24.1"
+    },
+    "overrides": {
+        "eliza": {
+            "@betswirl/eliza-core": "0.1.5-alpha.7",
+            "zod": "3.24.1"
+        }
     },
     "devDependencies": {
         "tsup": "8.3.5",
