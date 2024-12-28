@@ -1,6 +1,6 @@
 {
-    "name": "@ai16z/eliza",
-    "version": "0.1.5-alpha.5",
+    "name": "@betswirl/eliza-core",
+    "version": "0.1.5-alpha.6-ch-eliza-core",
     "description": "",
     "main": "dist/index.js",
     "type": "module",
