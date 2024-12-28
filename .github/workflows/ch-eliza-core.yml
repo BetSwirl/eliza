@@ -1,4 +1,4 @@
-name: Publish telegram-client to GitHub Packages
+name: Publish core
 on:
     push:
       tags:

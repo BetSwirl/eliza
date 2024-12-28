@@ -1,8 +1,8 @@
-name: Publish telegram-client to GitHub Packages
+name: Publish telegram-client
 on:
     push:
       tags:
-        - "v*.*.*ch-client-telegram*"
+        - "v*.*.*ch-eliza-client-telegram*"
 
 jobs:
     build:
