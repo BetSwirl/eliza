@@ -396,6 +396,8 @@ export class MessageManager {
                                   this.runtime.agentId
                           )
                         : undefined,
+                tgMessageId: message.message_id,
+                tgChatId: ctx.chat?.id.toString()
             };
 
             // Create memory for the message
