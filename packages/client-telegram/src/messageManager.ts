@@ -250,6 +250,7 @@ export class MessageManager {
                         i === 0 && replyToMessageId
                             ? { message_id: replyToMessageId }
                             : undefined,
+                    parse_mode: "Markdown",
                 }
             )) as Message.TextMessage;
 
@@ -395,6 +396,8 @@ export class MessageManager {
                                   this.runtime.agentId
                           )
                         : undefined,
+                tgMessageId: message.message_id,
+                tgChatId: ctx.chat?.id.toString()
             };
 
             // Create memory for the message
