@@ -397,7 +397,8 @@ export class MessageManager {
                           )
                         : undefined,
                 tgMessageId: message.message_id,
-                tgChatId: ctx.chat?.id.toString()
+                tgChatId: ctx.chat?.id,
+                tgUserId: ctx.from.id,
             };
 
             // Create memory for the message
