@@ -1,6 +1,6 @@
 {
     "name": "@betswirl/eliza-client-telegram",
-    "version": "0.1.5-alpha.9-ch-tg-client",
+    "version": "0.1.5-alpha.10-ch-tg-client",
     "main": "dist/index.js",
     "type": "module",
     "types": "dist/index.d.ts",

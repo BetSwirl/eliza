@@ -423,6 +423,8 @@ export class MessageManager {
             const shouldRespond = await this._shouldRespond(message, state);
 
             if (shouldRespond) {
+                await ctx.telegram.sendChatAction(ctx.chat.id, "typing");
+
                 // Generate response
                 const context = composeContext({
                     state,
